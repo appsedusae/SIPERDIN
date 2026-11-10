@@ -4,5 +4,5 @@
  * Biarkan kosong untuk MODE DEMO (data contoh di browser, tanpa server).
  */
 window.SIPERDIN_CONFIG = {
-  GAS_URL: 'https://script.google.com/macros/s/AKfycbwwwwYgvFY-H6TCO4LxNg9sufm413unx2ysPw4ZxuZU-JdXohKlwaYEYPE1xISVD7rR/exec'
+  GAS_URL: ''
 };
