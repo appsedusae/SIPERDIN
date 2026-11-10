@@ -449,10 +449,11 @@ table.tbl { width: 100%; border-collapse: separate; border-spacing: 0; font-size
   background: radial-gradient(circle at 50% 50%, var(--primary-50) 0, transparent 60%), repeating-linear-gradient(0deg, transparent 0 23px, var(--border) 23px 24px), repeating-linear-gradient(90deg, transparent 0 23px, var(--border) 23px 24px); }
 
 /* ---------- Login ---------- */
-.login { min-height: 100vh; display: grid; place-items: center; padding: 32px 20px; background:
+.login { min-height: 100vh; display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; padding: 32px 20px; overflow-x: hidden; background:
   linear-gradient(var(--canvas), var(--canvas)), repeating-linear-gradient(0deg, transparent 0 31px, var(--border) 31px 32px); }
 .login-top { position: fixed; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 18px 32px; }
-.login-card { width: min(1180px, 100%); display: grid; grid-template-columns: 1fr 1.05fr; border-radius: 28px; overflow: hidden; background: var(--surface);
+.login > * { min-width: 0; max-width: 100%; }
+.login-card { width: min(1180px, 100%); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); border-radius: 28px; overflow: hidden; background: var(--surface);
   box-shadow: var(--shadow-3); border: 1px solid var(--border); margin-top: 40px; }
 .login-l { background: linear-gradient(160deg, var(--primary), var(--primary-dark)); color: #fff; padding: 48px; display: flex; flex-direction: column; gap: 18px; position: relative; overflow: hidden; }
 .login-l::after { content: ''; position: absolute; width: 420px; height: 420px; border-radius: 50%; left: -160px; bottom: -200px; background: rgba(255,255,255,.06); }
@@ -467,7 +468,9 @@ table.tbl { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .feat em { font-style: normal; font-size: 10.5px; font-family: ui-monospace, Menlo, monospace; background: rgba(255,255,255,.18); padding: 2px 6px; border-radius: 6px; }
 .feat p { color: #DCE6FF; font-size: 13px; margin-top: 2px; }
 .login-l .quote { margin-top: auto; text-align: center; background: rgba(255,255,255,.12); border-radius: 14px; padding: 12px; font-style: italic; font-weight: 600; position: relative; z-index: 1; }
-.login-r { padding: 48px 56px; display: flex; flex-direction: column; gap: 18px; }
+.login-r { padding: 48px 56px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.login-r > * { min-width: 0; }
+.login-r .alert { width: 100%; }
 .login-r .eyebrow { color: var(--primary-ink); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
 .login-r h1 { font-size: 34px; line-height: 42px; }
 .gbtn { height: 52px; border-radius: 14px; border: 1px solid var(--border-2); background: var(--surface); display: flex; gap: 12px; align-items: center; justify-content: center;
@@ -475,8 +478,8 @@ table.tbl { width: 100%; border-collapse: separate; border-spacing: 0; font-size
 .gbtn:hover { background: var(--surface-2); }
 .sep { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
 .sep::before, .sep::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.otp { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
-.otp input { height: 54px; text-align: center; font: 800 22px/1 var(--font-head); border-radius: 12px; border: 1px solid var(--border); background: var(--surface); outline: none; }
+.otp { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+.otp input { width: 100%; min-width: 0; box-sizing: border-box; height: 54px; text-align: center; font: 800 22px/1 var(--font-head); border-radius: 12px; border: 1px solid var(--border); background: var(--surface); outline: none; }
 .otp input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-50); }
 .secure-note { display: flex; gap: 10px; align-items: flex-start; background: var(--primary-50); border: 1px solid var(--primary-100); border-radius: 14px; padding: 12px 14px; font-size: 13px; color: var(--primary-ink); }
 
@@ -502,7 +505,7 @@ table.tbl { width: 100%; border-collapse: separate; border-spacing: 0; font-size
   .chart-row, .split, .att-wide { grid-template-columns: minmax(0, 1fr); }
   .banner { grid-template-columns: 1fr; }
   .login-card { grid-template-columns: 1fr; }
-  .login-l { padding: 32px; } .login-l .feat-list { display: none; }
+  .login-l { padding: 32px; } .login-l .feat-list { display: none !important; }
   .login-r { padding: 32px; }
 }
 @media (max-width: 767px) {
