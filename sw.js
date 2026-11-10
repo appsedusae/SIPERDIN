@@ -1,6 +1,6 @@
 /* Service worker SIPERDIN — mempercepat pembukaan ulang & menyimpan pustaka berat (model wajah ±7 MB).
    Permintaan ke API Google Apps Script TIDAK PERNAH di-cache. Naikkan VERSI setiap merilis frontend baru. */
-const VERSI = 'siperdin-v1.0.0';
+const VERSI = 'siperdin-v1.0.1';
 const SHELL = ['./', 'index.html', 'css/style.css', 'js/config.js', 'js/ui.js', 'js/api.js', 'js/charts.js', 'js/face.js', 'js/geo.js', 'js/app.js',
   'js/halaman-auth.js', 'js/halaman-pegawai.js', 'js/halaman-admin.js', 'js/demo.js', 'manifest.webmanifest', 'assets/icon.svg'];
 const CDN = /^https:\/\/(cdnjs\.cloudflare\.com|cdn\.jsdelivr\.net|fonts\.googleapis\.com|fonts\.gstatic\.com)\//;
