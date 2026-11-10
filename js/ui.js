@@ -296,7 +296,8 @@
     if (_scripts[src]) return _scripts[src];
     _scripts[src] = new Promise((res, rej) => {
       const s = document.createElement('script');
-      s.src = src; s.async = true; s.crossOrigin = 'anonymous';
+      s.src = src; s.async = true;
+      if (!/^https:\/\/accounts\.google\.com\//.test(src)) s.crossOrigin = 'anonymous'; // skrip Google Sign-In dimuat tanpa mode CORS
       const t = setTimeout(() => { rej(new Error('Waktu memuat pustaka habis')); }, 20000);
       s.onload = () => { clearTimeout(t); res(); };
       s.onerror = () => { clearTimeout(t); delete _scripts[src]; rej(new Error('Gagal memuat ' + src.split('/').pop())); };
